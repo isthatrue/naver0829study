@@ -15,7 +15,7 @@ git-bash
 * 반대로 원격 저장소의 수정된 내용을 가져올 경우
 * git pull origin [브랜치명]
 
-
+7. 외부에서 가져올 때 git clone https://github.com/isthatrue/naver0829study.git
 
 처음에 한번만 이메일과 유저명 확인  
 git config --global user.name "[사용자명]"  
