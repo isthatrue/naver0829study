@@ -1,6 +1,7 @@
 package bit701.day0831;
 
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -21,7 +22,6 @@ public class Ex6_Date {
 		// 요일 구하기
 		int weekInt = date.getDay();	// 0:일, 1:월....6:토
 		System.out.println("요일숫자: " + weekInt);
-		
 		String week = weekInt==0?"일요일":weekInt==1?"월요일":weekInt==2?"화요일":weekInt==3?"수요일":weekInt==4?"목요일":weekInt==5?"금요일":"토요일";
 		System.out.println("오늘은 " + week + "입니다.");		
 		
