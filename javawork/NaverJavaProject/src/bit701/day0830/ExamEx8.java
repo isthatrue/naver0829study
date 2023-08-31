@@ -21,6 +21,7 @@ public class ExamEx8 {
 //		String insertMoney = args[0];
 //		int money = Integer.parseInt(insertMoney);
 		
+		// 파라미터에서 월 급여를 읽어서(문자열) 정수타입으로 변환한다.
 		int money = Integer.parseInt(args[0]);
 		
 		System.out.println("money : "+ money +"원");
