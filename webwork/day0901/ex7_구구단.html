@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:opsz@9..40&family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--
+        start와 end값을 입력받아 해당 구구단을 출력하시오 (가로방향)
+        단 start가 end보다 클 경우 두 값을 서로 바꾼 후
+    -->
+<script>
+    let start = prompt("구구단을 출력할 시작단 입력");
+    let end = prompt("구구단을 출력할 끝단 입력");
+    
+    if (start > end) {
+        let temp = start;
+        start = end;
+        end = temp;
+    }
+
+    for (let i = start; i <= end; i++) {
+        document.write(`<span style="font-family: Black Han Sans; font-size: 50px; font-color: red">&nbsp;${i}단</span>`)
+    }
+
+    document.write("<br>")
+
+    for (let back = 1; back <= 9; back++) {
+        for (let front = start; front <= end; front++) {
+            document.write(`<span style="font-family: 'Do Hyeon'; font-size: 30px">${front}*${back}=${front*back}&nbsp;&nbsp;&nbsp;</span>`);
+            }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:opsz@9..40&family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
+    <!-- 문서 삽입형 스타일 적용-->
+    <style>
+        /* style 영역에서의 주석처리 */
+        span{
+            font-family: 'Black Han Sans';
+        }
+
+        /* class:., id:# 으로 스타일 적용 */
+        .one{   /* 태그 상관없이 class 명이 one 인 경우 모두 적용 */
+            font-size: 30px;
+        }
+
+        div.one {   /* div 태그의 one class에만 적용 */
+            color: red;
+        }
+
+        .two,span.three{    /* class가 two인 모든 태그 그리고 span 태그 중 class가 three인 경우 적용 */
+            background-color: #f0b3c5;
+        }
+
+        div.one,div.three{  /* div 태그 중 클래스명이 one,three인 경우에만 border 적용 */  
+            border: 5px solid darkgreen; /* 굵기, 선 종류, 색상: 따로줘도 되고 같이 줘도 된다. */
+        }
+
+        h1 {    /* border 속성 각가 따로 주고자 할 경우*/
+            border-width: 10px;
+            border-style: double;
+            border-color: mediumvioletred;
+            border-radius: 20px; /* 테두리선 둥글게 */
+        }
+
+        #moring{
+            color: white;
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 스타일 정의 : 태그 삽입형 -->
+    <h1 style="color:purple; font-family: 'Do Hyeon'; background-color: #f0b3a2;">오늘 날씨가 좋아요!</h1>
+    <h1 style="color:rgb(200,0,0); background-color: rgba(255,0,255,0.5); font-family: 'jua';">Have a Good Day!!!</h1>
+    <!-- rbg(0,0,0,0) 낮을 수록 진해짐 마지막 필드는 투명도 0.5면 반투명 1이면 기존 색깔-->
+    <span class="one">JAVA</span>
+    <span class="two">HTML</span>
+    <span class="three">JavaScript</span>
+    <hr>
+    <div class="one">소나타</div>
+    <div class="two">그랜저</div>
+    <div class="three">벤츠</div>
+    <div id="moring">모닝</div>
+    
+</body>
+</html>

@@ -22,14 +22,16 @@ public class Ex10_Exam {
 		
 		Scanner sc = new Scanner(System.in);
 		NumberFormat numberFormat1 = NumberFormat.getInstance();
+		String product="";
+		int count = 0, price = 0, totalPrice = 0;
 		
 		
 		System.out.print("상품명 : ");
-		String product = sc.nextLine();
+		product = sc.nextLine();
 		System.out.print("수량 : ");
-		int count = sc.nextInt();
+		count = sc.nextInt();
 		System.out.print("단가 : ");
-		int price = sc.nextInt();
+		price = sc.nextInt();
 		
 //		double discountPrice = 0;
 //		if (count >= 5)
@@ -39,13 +41,15 @@ public class Ex10_Exam {
 //		System.out.println("총 금액 : " + numberFormat1.format(count * price));
 //		System.out.println("5개 이상 10프로 할인된 금액 : " + numberFormat1.format((int)discountPrice));		
 		
-		int totalPrice = price * count;
+		totalPrice = price * count;
 		int discountPrice = 0;
 		if (count >= 5)
+			// discountPrice = (int)(totalPrice * 0.9); 
 			discountPrice = totalPrice - totalPrice/10;
 		
 		System.out.println(totalPrice/10);
 		System.out.println("총 금액 : " + numberFormat1.format(totalPrice));
+		System.out.printf("5개 이상 10%% 할인된 금액 : %s\n",numberFormat1.format((int)discountPrice)); // NumberFormat은 문자열로 받아오기 때문에 %s
 		System.out.println("5개 이상 10프로 할인된 금액 : " + numberFormat1.format((int)discountPrice));		
 		
 		
