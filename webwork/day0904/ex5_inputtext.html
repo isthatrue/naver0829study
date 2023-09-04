@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:opsz@9..40&family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
+
+    <style>
+        div#msg {
+            font-family: 'Do Hyeon';
+            font-size: 30px;
+            margin-top: 30px;
+            color: palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="txtmsg">
+    <input type="button" id="btn1" value="읽기">
+    <div id="msg">Message 출력되는 곳</div>
+    <script>
+        let t=document.getElementById("txtmsg");
+        let b=document.getElementById("btn1");
+        let msg=document.getElementById("msg");
+        
+
+        // 버튼 이벤트 - 버튼 클릭 시 해당 함수가 호출된다.
+        b.onclick=function() {
+            // 입력한 문자열을 가져온다
+            let data=t.value;
+            // msg에 출력
+            // msg.innerText="<u>"+data+"</u>";     // innerText는 태그도 그대로 문자열로 출력
+            // msg.innerHTML="<u>"+data+"</u>";     // 태그가 적용되도록 하려면 innerHTML
+
+            msg.innerHTML+="<br><u>"+data+"</u>";
+
+            // 입력한 값을 지운 후 포커스 준다.
+            t.value="";
+            t.focus();
+        }
+    </script>
+</body>
+</html>
