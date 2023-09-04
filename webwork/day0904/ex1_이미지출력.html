@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:opsz@9..40&family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
+    <style>
+        figure {
+            float: left;
+        }
+        /* 공백: 모든 하위태그, >: 바로 아래의 태그를 의미 */
+        figure>img {
+            width: 130px;
+            height: 160px;
+            border: 3px inset gray;
+        }
+
+        /* figure>figcaption>h3>b {*/
+        figure b{ 
+            font-family: 'Jua';
+            margin-left: 50px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <img alt="자동차" src="../mycar/mycar4.png" width="150">
+    <img alt="자동차2" src="../mycar/mycar5.png" width="150">
+    <img alt="자동차3" src="../mycar/mycar6.png" width="150">
+    <br>
+    <b>미니 쿠페들</b>
+    <b style="margin-left: 100px;">초록 미니</b>
+    <b style="margin-left: 100px;">흰색 미니</b>
+    <hr>
+    <figure>
+        <img src="../연예인사진/8.jpg">
+        <figcaption>
+            <h3><b>전지현</b></h3>
+        </figcaption>
+    </figure>
+    <figure>
+        <img src="../연예인사진/10.jpg">
+        <figcaption>
+            <h3><b>김태희</b></h3>
+        </figcaption>
+    </figure>
+</body>
+</html>
