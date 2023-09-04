@@ -14,6 +14,7 @@ git-bash
 6. git push origin [브랜치명] // 원격 저장소의 해당 브랜치에 소스 보내기
 * 반대로 원격 저장소의 수정된 내용을 가져올 경우
 * git pull origin [브랜치명]
+* push 간 데이터 옮기다가 중간에 끊길 경우 재시도 시 안될 수도 있음 그럴 때 git push origin +[브랜치명] // [브랜치명] 앞에 "+" 추가하여 push 진행하면 해결
 
 7. 외부에서 가져올 때 git clone https://github.com/isthatrue/naver0829study.git
 
