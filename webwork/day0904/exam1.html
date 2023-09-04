@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:opsz@9..40&family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
+    <style>
+        body *{
+            font-family: 'Jua';
+        }
+        div#msg {
+            border: 2px solid black;
+            width: 300px;
+            height: 500px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <input type="button" value="새로운 난수 발생하기" id="btnrnd">
+    <br>
+    <input type="text" id="txtmsg">
+    <input type="button" value="OK" id="answer">
+    <div id="msg"></div>
+    <script>
+        let rnd;
+        let t=document.getElementById("txtmsg")
+
+        // 버튼 누를 시 rnd 난수 생성 완료
+        document.getElementById("btnrnd").onclick=function() {
+            rnd=parseInt((Math.random()*100))+1;
+            console.log(rnd);
+            
+        }
+        document.getElementById("answer").onclick=function() {
+            let data=parseInt(t.value);
+            let goal=document.getElementById("correct");
+            let rndimg=parseInt((Math.random()*15))+1;
+
+            
+            if (data == rnd) {
+                document.getElementById("msg").innerHTML+="<br><u>정답입니다!</u>";
+                goal.setAttribute("src", `../mycar/mycar${rndimg}.png`);
+                t.value="";
+                t.focus();
+            }
+            else if (data > 100 || data < 1) {
+                document.getElementById("msg").innerHTML+="<br><u>1 이상 100 이하의 숫자를 입력해주세요.</u>";
+                t.value="";
+                t.focus();
+            } else if (data > rnd) {
+                document.getElementById("msg").innerHTML+="<br><u>"+data+" 보다 작습니다.</u>";
+                t.value="";
+                t.focus();
+            } else if (data < rnd) {
+                document.getElementById("msg").innerHTML+="<br><u>"+data+" 보다 큽니다.</u>";
+                t.value="";
+                t.focus();
+            } else {
+                document.getElementById("msg").innerHTML+="<br><u>숫자를 입력하세요!.</u>";
+                t.value="";
+                t.focus();
+            }
+        }
+    
+    </script>
+    <div><img src="../연예인사진/8.jpg" width="300" id="correct"></div>
+</body>
+</html>
