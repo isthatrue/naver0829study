@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+/*    #photo {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        height: 400px;
+        box-shadow: 5px 5px 5px gray;
+
+        /* 한 줄일 경우 행 높이를 heigt 하고 같은 값을 주면 세로 방향 가운데로 온다. */
+    /* } */
+
+    /* #buttons {
+        position: absolute;
+        left: 50px;
+        top: 450px;
+        border: 5px solid red;
+    }
+
+    #buttons button {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    } */
+
+    div.buttons {
+        margin-left: 5px;
+    }
+    div.buttons button {
+        width: 100px;
+        height: 60px;
+        font-size: 30px;
+        border-radius: 100px;
+    }
+
+    #photo {
+        border: groove 10px gold;
+        margin-top: 10px;
+
+    }
+</style>
+
+<body>
+    <!-- 3개의 버튼, 점점 작게, 점점 크게, 랜덤 
+    점점 작게 : 사진이 5px 씩 줄어든다 (50보다 클 경우에만 변경)
+    점점 크게 : 사진이 5px 씩 커진다. (600px보다 작을 경우에만 변경)
+    랜덤 : 1~20 사이 난수를 구한 후 해당 사진으로 변경하기
+    -->
+    <div class="buttons" id="buttons">
+        <button type="button" id="btnminus">-</button>
+        <button type="button" id="btnplus">+</button>
+        <button type="button" id="btnrnd">R</button>
+        <br>
+        현재 사진 너비 : <span id="fsize"></span>
+    </div>
+    <img src="../연예인사진/8.jpg" style="width: 300px;" id="photo">
+
+    <script>
+        let p = document.getElementById("photo");
+
+        document.getElementById("btnminus").onclick = function () {
+            // 사진의 width 값 얻기
+            let m = document.getElementById("photo");
+            // alert(m.style.fontSize);    // 30px
+            let w = parseInt(p.style.width, 10);    // 10진수로 숫자 부분만 가져온다.
+
+
+            // 얻어온 글꼴 크기에 3 증가 - fs가 70보다 작은 경우에만 변경
+            if (w >= 50) {
+                w -= 5;
+                p.style.width = w + "px";
+                fsize.innerText=w;
+            }
+        }
+
+        document.getElementById("btnplus").onclick = function () {
+            let m = document.getElementById("photo");
+            let w = parseInt(p.style.width, 10);
+
+            if (w <= 600) {
+                w += 5;
+                p.style.width = w + "px";
+                fsize.innerText=w;
+            }
+        }
+
+        document.getElementById("btnrnd").onclick = function () {
+            let m = document.getElementById("photo");
+            let rndimg = parseInt(Math.random() * 20) + 1;
+
+            p.setAttribute("src", `../연예인사진/${rndimg}.jpg`);
+        }
+    </script>
+
+</body>
+</html>

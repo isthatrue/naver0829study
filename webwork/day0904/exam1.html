@@ -9,11 +9,13 @@
         body *{
             font-family: 'Jua';
         }
-        div#msg {
-            border: 2px solid black;
-            width: 300px;
-            height: 500px;
-            margin-top: 10px;
+        #msg {
+            border: 2px solid gray;
+            width: 400px;
+            height: 400px;
+            padding: 20px 10px; /* top left*/
+            margin-top: 30px;
+            font-size: 20px;
             text-align: center;
         }
         
@@ -23,16 +25,20 @@
 <body>
     <input type="button" value="새로운 난수 발생하기" id="btnrnd">
     <br>
-    <input type="text" id="txtmsg">
-    <input type="button" value="OK" id="answer">
+    <br>
+    <input type="text" id="txtmsg" style="width: 70px; font-size: 25px;" autofocus>
+    <!-- <input type="button" value="OK" id="answer">  -->
+    <button type="button" id="answer" style="font-size: 25px;">OK</button>
     <div id="msg"></div>
     <script>
-        let rnd;
+        let rnd;    // 난수를 구할 변수
         let t=document.getElementById("txtmsg")
 
-        // 버튼 누를 시 rnd 난수 생성 완료
+        // 난수 버튼 이벤트
         document.getElementById("btnrnd").onclick=function() {
+            // 1 ~ 100 사이의 난수 구하기
             rnd=parseInt((Math.random()*100))+1;
+            // console에 출력
             console.log(rnd);
             
         }
