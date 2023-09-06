@@ -18,7 +18,7 @@ public class Ex7_ArrayString {
 		
 		// 할당한 개수만큼 이름 입력
 		for (int i=0; i<names.length; i++) {
-			System.out.println(i+"번 이름은? ");
+			System.out.println((i+1)+"번 이름은? ");
 			names[i]=sc.nextLine();
 		}
 		
