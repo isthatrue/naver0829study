@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:opsz@9..40&family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
+    <style>
+        div.box {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 100px;
+            margin-left: 22px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+            font-family: 'Jua';
+            margin-top: 22px;
+            color: red;
+        }
+        div.numbox {
+            height: 150px;
+            width: 770px;
+            margin-top: 20px;
+            border-radius: 20px;
+            background-color: skyblue;
+        }
+
+        #rndbtn {
+            margin-left: 270px;
+            font-family: 'Jua';
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+        }
+
+        #title {
+            margin-left: 300px;
+            font-family: 'Jua';
+        }
+
+
+    </style>
+    <script>
+        window.onload=function() {
+            let date = new Date(); 
+            let y = date.getFullYear();
+            let m = date.getMonth()+1;
+            let d = date.getDate();
+    
+            let box = document.querySelectorAll("div.box");
+            // 여러개의 class 요소들을 배열 변수로 얻는다.
+            let title = document.getElementById("title");
+            // console.log(box.length);
+
+            document.getElementById("rndbtn").onclick=function() {
+                for (let i=0; i<box.length; i++) {
+                    box[i].innerHTML=parseInt(Math.random()*45)+1;      // parsetInt로 받아도 변수에 들어갈 때 
+                    for (let j=0; j<i; j++) {
+                        if (box[i].innerHTML == box[j].innerHTML) {
+                            i--;
+                            break;
+                        }
+                    }
+                }
+                for (let i=0; i<box.length-1; i++) {
+                    for (let j=i+1; j<box.length; j++) {
+                        if (parseInt(box[i].innerHTML) > parseInt(box[j].innerHTML)) {
+                            let temp = box[i].innerHTML;
+                            box[i].innerHTML = box[j].innerHTML;
+                            box[j].innerHTML = temp;
+                        }
+                    }
+                }
+        }
+        
+        title.innerHTML=`<h3>1026회 <span style="font-size: 15px;">${y}-${m}-${d}</span></h3>`; 
+    }
+
+     
+   
+    </script>
+</head>
+<body>
+<div id="title"></div>
+<div class="numbox">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+<br>
+<button type="button" id="rndbtn">로또 숫자 구하기</button>
+</body>
+</html>
