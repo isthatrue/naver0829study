@@ -1,7 +1,5 @@
 package bit701.day0911;
 
-import java.nio.channels.WritableByteChannel;
-
 /*
  *	this : 자기 자신을 의미하는 인스턴스 변수(iv)
  *		인스턴스 멤버 메소드는 this라는 변수를 기본적으로 가지고 있다.
