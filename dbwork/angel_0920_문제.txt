@@ -1,20 +1,22 @@
 --문제
 --테이블 생성 (student) : num 숫자(5),name 문자열(10),height 숫자(5,1),
 --  java 숫자(3) 기본값 10,spring 숫자(3) 기본값 10, ban 문자열(20)
-
-
-
-
-
+ CREATE TABLE STUDENT(
+    NUM NUMBER(5),
+    NAME VARCHAR2(10) NOT NULL,
+    HEIGHT NUMBER(5,1),
+    JAVA NUMBER(3) DEFAULT 10,
+    SPRING NUMBER(3) DEFAULT 10,
+    BAN VARCHAR2(20));
+    
 
 --시퀀스 생성  seq_stu  기본(1부터 1씩증가), nocache 추가
-
-
+CREATE SEQUENCE SEQ_STU START WITH 1 INCREMENT BY 1 NOCACHE;
 
 
 --제약조건들 추가
 --num  에 primary key 추가(student_pk_nu)
-
+ALTER TABLE NUM ADD CONSTRAINT STUDENT_PK_NUM PRIMARY KEY(NUM);
 
 
 

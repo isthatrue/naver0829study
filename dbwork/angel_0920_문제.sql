@@ -1,0 +1,63 @@
+--문제
+--테이블 생성 (student) : num 숫자(5),name 문자열(10),height 숫자(5,1),
+--  java 숫자(3) 기본값 10,spring 숫자(3) 기본값 10, ban 문자열(20)
+ CREATE TABLE STUDENT(
+    NUM NUMBER(5),
+    NAME VARCHAR2(10) NOT NULL,
+    HEIGHT NUMBER(5,1),
+    JAVA NUMBER(3) DEFAULT 10,
+    SPRING NUMBER(3) DEFAULT 10,
+    BAN VARCHAR2(20));
+    
+
+--시퀀스 생성  seq_stu  기본(1부터 1씩증가), nocache 추가
+CREATE SEQUENCE SEQ_STU START WITH 1 INCREMENT BY 1 NOCACHE;
+SELECT * FROM SEQ;
+
+--제약조건들 추가
+--num  에 primary key 추가(student_pk_nu)
+ALTER TABLE STUDENT ADD CONSTRAINT STUDENT_PK_NU PRIMARY KEY(NUM);
+
+
+--java,spring 은 1~100 만 가능하도록 check 제약조건 추가
+ALTER TABLE STUDENT ADD CONSTRAINT STUDENT_CK_JAVA CHECK (JAVA >=0 and JAVA <=100);
+ALTER TABLE STUDENT ADD CONSTRAINT STUDENT_CK_SPRING CHECK (SPRING >=0 and SPRING <=100);
+
+
+
+--ban 은 '햇님반','달님반','별님반' 만 추가할수 있도록 check 추가
+ALTER TABLE STUDENT ADD CONSTRAINT STUDENT_CK_BAN CHECK (BAN IN ('햇님반', '달님반', '별님반'));
+
+
+
+--5개 정도만 데이타를 추가해보자
+INSERT INTO STUDENT (NUM, NAME, JAVA, HEIGHT, BAN) VALUES (SEQ_STU.NEXTVAL, '김진이', 89, 167.5, '햇님반');
+INSERT INTO STUDENT VALUES (SEQ_STU.NEXTVAL, '철수', 179.1, 90, 86, '햇님반');
+INSERT INTO STUDENT VALUES (SEQ_STU.NEXTVAL, '순자', 160.8, 95, 65, '별님반');
+INSERT INTO STUDENT VALUES (SEQ_STU.NEXTVAL, '춘수', 175.6, 70, 84, '달님반');
+INSERT INTO STUDENT VALUES (SEQ_STU.NEXTVAL, '춘자', 158.4, 80, 55, '햇님반');
+
+
+--커밋하기
+commit;
+
+--num>=4 이상 모두 삭제
+DELETE FROM STUDENT WHERE NUM>=4;
+
+-- num 이 3인 사람의 java점수를 99로 ,ban을 '달님반' 으로 수정
+UPDATE STUDENT SET JAVA=99, BAN='달님반' WHERE NUM=3;
+
+--num=2 인사람의 키를 188.9 로 수정
+UPDATE STUDENT SET HEIGHT=188.9 WHERE NUM=2;
+
+--num=2 인 데이타 삭제
+DELETE FROM STUDENT WHERE NUM=2;
+
+--데이타 3개정도 더 추가
+INSERT INTO STUDENT VALUES (SEQ_STU.NEXTVAL, '영숙', 179.1, 90, 86, '햇님반');
+INSERT INTO STUDENT VALUES (SEQ_STU.NEXTVAL, '광수', 179.1, 90, 86, '별님반');
+INSERT INTO STUDENT VALUES (SEQ_STU.NEXTVAL, '향숙', 179.1, 90, 86, '햇님반');
+commit;
+
+--조회 : 이름  반 자바  스프링  총점  평균 -총점이 높은 사람부터 출력
+SELECT NAME, BAN, JAVA, SPRING, JAVA+SPRING TOTAL, (JAVA+SPRING)/2 AVG FROM STUDENT ORDER BY TOTAL DESC;
