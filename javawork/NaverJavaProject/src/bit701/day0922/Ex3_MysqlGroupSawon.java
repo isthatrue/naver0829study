@@ -24,7 +24,7 @@ public class Ex3_MysqlGroupSawon {
 	public void sawonBunseok() {
 		Connection conn = null;
 		Statement stmt = null;
-		ResultSet rs = null;
+		ResultSet rs = null;	
 		String sql = "select buseo, count(*) count, max(score) maxscore, "
 				+ "min(score) minscore, avg(score) avgscore from sawon group by buseo";
 		NumberFormat numformat1 = NumberFormat.getInstance();
