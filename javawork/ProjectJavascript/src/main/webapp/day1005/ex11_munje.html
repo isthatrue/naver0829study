@@ -31,6 +31,8 @@
 		// h3 아래의 span 태그를 클릭하면 안의 텍스트를 읽어서 이미지 photo 의 src 에 넣기
 		$("h3>span").click(function(){
 			$("img").attr("src", ($(this).text()));
+			$("h4>b").text($(this).text());
+			
 		});
 		// 문제 3
 		// photo 라는 클래스로 스타일을 만든 후 (border 등 마음대로 추가)
