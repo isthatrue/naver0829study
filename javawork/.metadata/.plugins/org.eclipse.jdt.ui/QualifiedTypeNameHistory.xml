@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="bit701.day0918.Orange"/>
     <fullyQualifiedTypeName name="bit701.day0918.Ex4_Lambda"/>
     <fullyQualifiedTypeName name="bit701.day0918.DataAdd"/>
     <fullyQualifiedTypeName name="java.net.InetAddress"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="bit701.day0926.Solution"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="bit701_Study.Solution1010_1"/>
+    <fullyQualifiedTypeName name="bit701_Study.Solution1010_2"/>
 </qualifiedTypeNameHistroy>
