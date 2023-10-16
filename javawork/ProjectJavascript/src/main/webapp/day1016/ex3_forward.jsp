@@ -12,35 +12,16 @@
     body * {
         font-family: 'Jua';
     }
-    
-    table.tb thead tr th {
-    	background-color: orange;
-    	color: blue; 
-    	text-align: center;
-    }
 </style>
 </head>
 <body>
-<table class="table table-bordered tb">
-	<thead>
-		<tr>
-		<%
-		for(int dan=2; dan<=9; dan++) { %>
-			<th><%=dan %>단</th>
-		<%}
-		%>
-		</tr>
-	</thead>
-	<tbody>
-	<%
-	for (int i=1; i<=9; i++) {%>
-		<tr>
-		<% for(int dan=2; dan<=9; dan++) { %>
-			<td align=center><%=dan %>X<%=i %>=<%=dan*i %></td> 
-		<%}%>
-		</tr>
-	<%}
-	%>
-</table>
+<%
+	// jsp:param 으로 한글을 전달 시 현재 페이지에서 인코딩을 해줘야한다.
+	request.setCharacterEncoding("UTF-8");
+%>
+<jsp:forward page="ex4_forward.jsp">
+	<jsp:param value="../image/C7.png" name="photo"/>
+	<jsp:param value="Hello" name="msg"/>
+</jsp:forward>
 </body>
 </html>

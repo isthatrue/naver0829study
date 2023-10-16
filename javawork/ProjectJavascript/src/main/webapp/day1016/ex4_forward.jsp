@@ -12,35 +12,16 @@
     body * {
         font-family: 'Jua';
     }
-    
-    table.tb thead tr th {
-    	background-color: orange;
-    	color: blue; 
-    	text-align: center;
-    }
 </style>
 </head>
 <body>
-<table class="table table-bordered tb">
-	<thead>
-		<tr>
-		<%
-		for(int dan=2; dan<=9; dan++) { %>
-			<th><%=dan %>단</th>
-		<%}
-		%>
-		</tr>
-	</thead>
-	<tbody>
-	<%
-	for (int i=1; i<=9; i++) {%>
-		<tr>
-		<% for(int dan=2; dan<=9; dan++) { %>
-			<td align=center><%=dan %>X<%=i %>=<%=dan*i %></td> 
-		<%}%>
-		</tr>
-	<%}
-	%>
-</table>
+<h3 class="alert alert-danger">ex4_forward 파일입니다.</h3>
+<%
+	// jsp:param 데이터는 getParameter 로 읽는다.
+	String photo = request.getParameter("photo");
+	String msg = request.getParameter("msg");
+%>
+<img src="<%=photo %>">
+<h4><%=msg %></h4>
 </body>
 </html>

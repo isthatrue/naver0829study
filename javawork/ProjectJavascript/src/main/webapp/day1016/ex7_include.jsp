@@ -12,35 +12,14 @@
     body * {
         font-family: 'Jua';
     }
-    
-    table.tb thead tr th {
-    	background-color: orange;
-    	color: blue; 
-    	text-align: center;
-    }
 </style>
 </head>
 <body>
-<table class="table table-bordered tb">
-	<thead>
-		<tr>
-		<%
-		for(int dan=2; dan<=9; dan++) { %>
-			<th><%=dan %>단</th>
-		<%}
-		%>
-		</tr>
-	</thead>
-	<tbody>
-	<%
-	for (int i=1; i<=9; i++) {%>
-		<tr>
-		<% for(int dan=2; dan<=9; dan++) { %>
-			<td align=center><%=dan %>X<%=i %>=<%=dan*i %></td> 
-		<%}%>
-		</tr>
-	<%}
-	%>
-</table>
+<h5>include : 다른 파일의 실행결과를 현재 파일에 포함시킨다.</h5>
+<h5>구구단</h5>
+<jsp:include page="../day1013_jsp/ex3_gugudan.jsp"/>
+<hr>
+<h5>ShopList</h5>
+<jsp:include page="../day1013_jsp/ex4_shoplist.jsp"/>
 </body>
 </html>

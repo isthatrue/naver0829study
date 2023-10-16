@@ -12,35 +12,17 @@
     body * {
         font-family: 'Jua';
     }
-    
-    table.tb thead tr th {
-    	background-color: orange;
-    	color: blue; 
-    	text-align: center;
-    }
 </style>
 </head>
 <body>
-<table class="table table-bordered tb">
-	<thead>
-		<tr>
-		<%
-		for(int dan=2; dan<=9; dan++) { %>
-			<th><%=dan %>단</th>
-		<%}
-		%>
-		</tr>
-	</thead>
-	<tbody>
-	<%
-	for (int i=1; i<=9; i++) {%>
-		<tr>
-		<% for(int dan=2; dan<=9; dan++) { %>
-			<td align=center><%=dan %>X<%=i %>=<%=dan*i %></td> 
-		<%}%>
-		</tr>
-	<%}
-	%>
-</table>
+<!-- 
+	jsp 에서 페이지 이동하는 방법
+	1. forward : url 주소 안바뀜, request, response 등이 그대로 전달됨
+	2. redirect : url 주소 바뀜, request, response 등이 새로 생성되므로 전달 안됨
+ -->
+<%
+	String code = "Bitcamp";
+	response.sendRedirect("ex6_redirect.jsp?code=" + code + "&color=green");
+%>
 </body>
 </html>

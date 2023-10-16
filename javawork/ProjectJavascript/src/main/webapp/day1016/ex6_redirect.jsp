@@ -12,35 +12,15 @@
     body * {
         font-family: 'Jua';
     }
-    
-    table.tb thead tr th {
-    	background-color: orange;
-    	color: blue; 
-    	text-align: center;
-    }
 </style>
 </head>
 <body>
-<table class="table table-bordered tb">
-	<thead>
-		<tr>
-		<%
-		for(int dan=2; dan<=9; dan++) { %>
-			<th><%=dan %>단</th>
-		<%}
-		%>
-		</tr>
-	</thead>
-	<tbody>
-	<%
-	for (int i=1; i<=9; i++) {%>
-		<tr>
-		<% for(int dan=2; dan<=9; dan++) { %>
-			<td align=center><%=dan %>X<%=i %>=<%=dan*i %></td> 
-		<%}%>
-		</tr>
-	<%}
-	%>
-</table>
+<h3>ex6_redirect 파일입니다.</h3>
+<%
+	String code = request.getParameter("code");
+	String color = request.getParameter("color");
+%>
+<h1 style="color: <%=color %>"><%=code %></h1>
+<h1></h1>
 </body>
 </html>

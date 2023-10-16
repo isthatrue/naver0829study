@@ -1,3 +1,5 @@
+<%@page import="data.ShopDto"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,35 +14,24 @@
     body * {
         font-family: 'Jua';
     }
-    
-    table.tb thead tr th {
-    	background-color: orange;
-    	color: blue; 
-    	text-align: center;
-    }
 </style>
 </head>
 <body>
-<table class="table table-bordered tb">
-	<thead>
-		<tr>
-		<%
-		for(int dan=2; dan<=9; dan++) { %>
-			<th><%=dan %>단</th>
+<h3 class="alert alert-danger">ex2_forward 파일입니다.</h3>
+
+<%
+	// ex1 에서 request 에 저장해둔 데이터를 꺼내보자
+	String msg = (String)request.getAttribute("msg");
+	List<ShopDto> list = (List<ShopDto>)request.getAttribute("list");
+%>
+<h2>Ex1 에서 저장해둔 msg : <%=msg %></h2>
+<h2>Ex1 에서 저장해둔 ShopDTO List</h2>
+<%
+	for(ShopDto dto : list) {%>
+		<h4>상품명 : <%=dto.getSangpum() %></h4>
+		<h4>가	격 : <%=dto.getPrice() %></h4>
+		<hr>
 		<%}
-		%>
-		</tr>
-	</thead>
-	<tbody>
-	<%
-	for (int i=1; i<=9; i++) {%>
-		<tr>
-		<% for(int dan=2; dan<=9; dan++) { %>
-			<td align=center><%=dan %>X<%=i %>=<%=dan*i %></td> 
-		<%}%>
-		</tr>
-	<%}
-	%>
-</table>
+%>
 </body>
 </html>

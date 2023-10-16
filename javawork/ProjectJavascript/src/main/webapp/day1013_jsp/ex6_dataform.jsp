@@ -18,7 +18,7 @@
 <h5>폼 태그 post 방식으로 읽기</h5>
 <form action="./ex6_dataread.jsp" method="post">
 	이름 : <input type="text" name="irum"><br>
-	운전면허 : <label><input type="checkbox">운전면허</label><br>
+	운전면허 : <label><input type="checkbox" name="license">운전면허</label><br>
 	성별 : <label><input type="radio" name="gender" value="남자" checked="checked">남자</label>
 		&nbsp;&nbsp;
 		<label><input type="radio" name="gender" value="여자">여자</label>
