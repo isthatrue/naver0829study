@@ -11,9 +11,24 @@
 		font-family: 'Jua';
 	}
 	
-	.calendar table {
-		background-color: skyblue;
+	.container {
+		margin: 25px;
+		width: 1000px;
+		height: 800px;
+		outline: double 5px red;
 	}
+	
+	.inputday {
+		width: 400px;
+		margin: 0 auto;
+		padding-top: 10px;
+	}
+	
+	.buttonmove {
+		width: 500px;
+		margin: 0 auto;
+	}
+	
 </style>
 <script>
 	window.onload=function(){
@@ -30,7 +45,7 @@
 		let startDOW = startDay.getDay();
 		let endDay = new Date(year, month-1, 0);
 		
-		let s = `
+		/* let s = `
 				<div class="buttonMove" align="center">
 					<button>
 					<span>${year}년 ${month}월 달력</span>
@@ -45,12 +60,27 @@
 				`;
 		s+="</table>";
 		
-		document.querySelector(".calendar").innerHTML = s;
+		document.querySelector(".calendar").innerHTML = s; */ 
 	}
 </script>    
 </head>
 <body>
-<div class=""
+<div class="container">
+	<div class="input-group mb-3 inputday">
+		<span class="input-group-text">연도</span>
+		<input type="text" class="form-control">
+		<span class="input-group-text">월</span>
+		<input type="text" class="form-control" style="border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
+		&nbsp;
+		<button type="button" style="border: none; border-radius: 10px; background-color: red; color: white;">
+			달력 불러오기</button>
+	</div>
+	<div class="buttonmove">
+		<span><button type="button" class="btn btn-primary">◀</button></span>
+		<span class="input-group-text">월</span>
+		<button type="button" class="btn btn-primary">▶</button>
+	</div>
+</div>
 <div class="calendar"></div>
 </body>
 </html>
