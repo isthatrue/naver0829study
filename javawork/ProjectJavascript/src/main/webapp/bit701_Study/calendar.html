@@ -25,11 +25,32 @@
 	}
 	
 	.buttonmove {
-		width: 500px;
+		width: 120px;
 		margin: 0 auto;
 	}
 	
 </style>
+    
+</head>
+<body>
+<div class="container">
+	<div class="input-group mb-3 inputday">
+		<span class="input-group-text">연도</span>
+		<input type="text" class="form-control searchyear" value="">
+		<span class="input-group-text">월</span>
+		<input type="text" class="form-control searchmonth" style="border-top-right-radius: 5px; border-bottom-right-radius: 5px;" value="">
+		&nbsp;
+		<button type="button" style="border: none; border-radius: 10px; background-color: red; color: white;" class="button-load">
+			달력 불러오기</button>
+	</div>
+	<div class="buttonmove">
+		<button type="button" class="btn btn-primary predate">◀</button>
+		<span class="movedate"></span>
+		<button type="button" class="btn btn-primary nextdate">▶</button>
+	</div>
+	<br>
+	<div class="calendar"></div>
+</div>
 <script>
 	window.onload=function(){
 		calendarview();
@@ -40,47 +61,85 @@
 	let year = date.getFullYear();
 	let month = date.getMonth()+1;
 	
+	
+	/*document.querySelector(".inputday>button").onclick=function() {
+			year = Number(document.querySelector(".searchyear").value());
+			month = Number(document.querySelector(".searchmonth").value());
+			calendarview(); */
+			
+	
+	const buttonLoad = document.querySelector(".button-load");
+
+    buttonLoad.addEventListener("click", function() {
+        year = Number(document.querySelector(".searchyear").value);
+        month = Number(document.querySelector(".searchmonth").value);
+        calendarview();
+    });
+		
+	
 	function calendarview() {
 		let startDay = new Date(year, month-1, 1);
 		let startDOW = startDay.getDay();
-		let endDay = new Date(year, month-1, 0);
+		let endDay;
 		
-		/* let s = `
-				<div class="buttonMove" align="center">
-					<button>
-					<span>${year}년 ${month}월 달력</span>
-					
-				<div>	
-				<table class="table table-bordered">
-					
-				<caption align="center"><h3>${year}년 ${month}월 달력</h3></caption>
-				<tr>
-					<td>1</td>
-				</tr>
-				`;
-		s+="</table>";
+		switch(month) {
+			case 2:
+				endDay = (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0) ? 29 : 28;
+				break;
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+				endDay = 30;
+				break;
+			default:
+				endDay = 31;
+		}
 		
-		document.querySelector(".calendar").innerHTML = s; */ 
+		let s = 
+			`
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>일</th><th>월</th><th>화</th><th>수</th>
+						<th>목</th><th>금</th><th>토</th>
+					</tr>
+				</thead>
+				<tbody>
+			`;
+			
+		// 앞에 빈칸 부분
+		s += "<tr>";
+		for(let i=1; i<=startDOW; i++) {
+			s += "<td></td>";
+		}
+		
+		// 1 ~ endday 까지 출력 (단 토요일은 </tr><tr>)
+		for(let i=1; i<=endDay; i++) {
+			++startDOW;
+			// 출력 후 7의 배수일 때 tr 닫기
+			s += `<td style="color: ${(startDOW % 7) == 1?'red':'black'}">${i}</td>`;
+			if(((startDOW % 7) == 0) && (i < endDay))
+				s += `</tr><tr>`;
+			else if (((startDOW % 7) == 0) && (i == endDay))
+				s +="</tr>";
+		}
+		
+		// 나머지 칸 그리기(위에서 토요일까지 칸이 그려지지 않은 경우에만 해당)
+		let n = 1;
+		if ((startDOW % 7) != 0) {
+			while(true) {
+				startDOW++;
+				s += `<td style="color: gray">${n++}</td>`;
+				if((startDOW % 7) == 0)
+				break;
+			}
+			s += "</tr>";
+		}
+		s += "</tbody></table>";
+		
+		document.querySelector(".calendar").innerHTML = s; 
 	}
-</script>    
-</head>
-<body>
-<div class="container">
-	<div class="input-group mb-3 inputday">
-		<span class="input-group-text">연도</span>
-		<input type="text" class="form-control">
-		<span class="input-group-text">월</span>
-		<input type="text" class="form-control" style="border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
-		&nbsp;
-		<button type="button" style="border: none; border-radius: 10px; background-color: red; color: white;">
-			달력 불러오기</button>
-	</div>
-	<div class="buttonmove">
-		<span><button type="button" class="btn btn-primary">◀</button></span>
-		<span class="input-group-text">월</span>
-		<button type="button" class="btn btn-primary">▶</button>
-	</div>
-</div>
-<div class="calendar"></div>
+</script>
 </body>
 </html>
