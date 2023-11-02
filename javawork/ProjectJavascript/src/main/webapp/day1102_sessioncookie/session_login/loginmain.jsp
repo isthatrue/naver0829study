@@ -14,7 +14,22 @@
     }
 </style>
 </head>
+<%
+	// 로그인 상태인지 세션 값을 얻는다.
+	String loginok = (String)session.getAttribute("loginok");
+%>
 <body>
-
+<div style="margin: 50px;">
+	<%
+	if (loginok == null) { %>
+		<jsp:include page="loginform.jsp" />
+		<br><br>
+		<h3><b>멤버 정보를 확인하려면 먼저 로그인을 해주세요.</b></h3>
+	<% } else { %> 
+		<jsp:include page="logoutform.jsp" />
+		<br><br>
+		<img src="naver.png">
+	<% }
+	%>
 </body>
 </html>

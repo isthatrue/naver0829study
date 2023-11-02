@@ -15,6 +15,12 @@
 </style>
 </head>
 <body>
-
+	<div class="input-groun" style=="width: 300px;">
+		<h3>고객님이 로그인 중입니다.</h3>
+		<button type="submit" class="btn btn btn-danger"
+		style="width: 100px; margin-left: 20px;"
+		onclick="location.href = 'logoutaction.jsp'">로그아웃</button>
+		
+	</div>
 </body>
 </html>

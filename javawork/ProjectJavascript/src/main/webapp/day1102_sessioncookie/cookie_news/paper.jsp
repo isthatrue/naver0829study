@@ -15,6 +15,16 @@
 </style>
 </head>
 <body>
-
+<ul>
+	<li>
+		<a href="gisa1.jsp">‘단발 여신’ 안유진, 어깨 한 쪽 내렸는데 저세상 ‘요염’</a>
+	</li>
+	<li>
+		<a href="gisa2.jsp">‘여신이어라’ 남규리, 파리 뒤흔든 드레스 자태 ‘명품 아우라’</a>
+	</li>
+	<li>
+		<a href="gisa3.jsp">‘얼굴 천재’ 고윤정, 겨울에도 예쁠 예정! (화보)</a>
+	</li>
+</ul>
 </body>
 </html>

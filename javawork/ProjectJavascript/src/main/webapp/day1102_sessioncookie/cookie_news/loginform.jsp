@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,17 +9,20 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <style>
-	body * {
-		font-family: 'Jua';
-	}
+    body * {
+        font-family: 'Jua';
+    }
 </style>
-<script>
-	window.onload=function(){
-		
-	}
-</script>    
 </head>
 <body>
-
+	<form action="loginaction.jsp" method="post">
+	<div class="input-group" style="width: 300px;">
+			<b>암호 입력</b>
+			<input type="password" class="form-control" autofoucs required 
+			style="width: 100;px; margin-left: 10px;" name="pass">
+			
+			<button type="submit" class="btn btn-sm btn-danger">로그인</button>
+		</div>
+	</form>
 </body>
 </html>
