@@ -18,7 +18,11 @@
 </style>
 </head>
 <body>
-
-
+  <h2>이름 : ${name}</h2>
+  <h3>주소 : ${addr}</h3>
+  <hr>
+  <c:forEach var="f" items="${food}">
+  	<img src="../../photo/${f}" width="200" height="200" border="3">
+  </c:forEach>
 </body>
 </html>
