@@ -96,27 +96,24 @@ public class BoardContentController {
 		return "redirect:./content?num=" + dto.getNum();
 	}
 	
+		
 	//´ñ±Û Ãß°¡
 	@PostMapping("/simple/addanswer")
 	public String addAnswer(@ModelAttribute AnswerDto dto) {
-		
-		// ´ñ±Û Ãß°¡
+						
+		//´ñ±Û Ãß°¡
 		answerDao.insertAnswer(dto);
-		return "redirect:./content?num="+ dto.getNum();
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
+		return "redirect:./content?num="+dto.getNum();
+	}
+
+	//´ñ±Û »èÁ¦
+	@GetMapping("/simple/answerdel")
+	public String deleteAnswer(@RequestParam int num,@RequestParam int idx) {
+
+		answerDao.deleteAnswer(idx);
+		return "redirect:./content?num="+num;
+	}
 	
 }
 

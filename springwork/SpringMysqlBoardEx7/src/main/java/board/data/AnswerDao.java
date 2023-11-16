@@ -18,8 +18,12 @@ public class AnswerDao {
 		session.insert(nameSpace+"insertAnswer", dto);
 	}
 	
-  public List<AnswerDto> getAnswers(int num){
+  public List<AnswerDto> getAnswers(int num) {
   	return session.selectList(nameSpace + "selectAnswerByNum", num);
   }
+  
+  public void deleteAnswer(int idx) {
+		session.delete(nameSpace+"deleteAnswer", idx);
+	}
 
 }
