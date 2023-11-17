@@ -115,6 +115,39 @@
 					}
 			});
 		});
+		
+		// 메모 삭제
+		$(document).on("click", ".memodel", function(){
+			let num = $(this).attr("num");
+			let a = confirm("삭제하려면 확인");
+			if(a) {
+				$.ajax({
+					type: "get",
+					dataType: "text",
+					url: "./delete",
+					data: {"num": num},
+					success: function(res) {
+						// 삭제 후 목록 다시 출력
+						list();
+					}
+				})
+			}
+		});
+		
+		// 좋아요수 증가하기
+		$(document).on("click", ".increlikes", function(){
+			let num = $(this).attr("num");
+			let $prev = $(this).prev();
+			$.ajax({
+				type: "get",
+				dataType: "json",
+				url: "./likes",
+				data: {"num": num},
+				success: function(res) {
+					$prev.text(res.likes);
+				}
+			});
+		});
 	});	// function close
 	
 	function list() {
@@ -135,7 +168,8 @@
 							닉네임 : \${item.nickname}<br>
 							메  모 : \${item.memo}<br>
 							작성일 : \${item.writeday}<br>
-							좋아요 : \${item.likes}&nbsp;<i class="bi bi-suit-heart" style="cursor: pointer; color: red;"></i><br>
+							좋아요 : \<span>\${item.likes}</span><i class="bi bi-suit-heart increlikes"
+								style="cursor: pointer; color: red; margin-left: 5px;" num="\${item.num}"></i><br>
 							<a href = "#" class="memodel" num="\${item.num}" style="cursor: pointer; color: red;">삭제</a>
 						</div>
 						`;
