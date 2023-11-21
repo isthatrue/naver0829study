@@ -19,7 +19,7 @@
 		list-style: none;
 		width: 800px;
 		height: 80px;
-		margin-left: 100px;
+		margin-left: 200px;
 	}
 	
 	ul.menu li {
@@ -59,7 +59,7 @@
 	</li>
 	
 	<li>
-		<a href="${root }/login/main">로그인</a>
+		<a href="${root }/member/list">회원명단</a>
 	</li>
 	
 	<li>
