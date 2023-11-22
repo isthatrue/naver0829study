@@ -19,7 +19,7 @@
 		list-style: none;
 		width: 800px;
 		height: 80px;
-		margin-left: 200px;
+		margin-left: 100px;
 	}
 	
 	ul.menu li {
