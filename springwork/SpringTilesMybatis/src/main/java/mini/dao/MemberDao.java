@@ -50,7 +50,7 @@ public class MemberDao {
   	
   	int n = session.selectOne(nameSpace + "loginCheck", map);
   	
-  	return n == 0?false:true;
+  	return n == 0 ? false : true;
   }
   
   public MemberDto getData(String myid) {
