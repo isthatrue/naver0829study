@@ -24,7 +24,7 @@
 		color: tomato;
 	}
 	div.main_container>div {
-		border: 1px solid gray;
+		border: 0px solid gray;
 	}
 	
 	div.main_container div.header {

@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Permanent+Marker&family=Single+Day&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <style>
    body * {
@@ -57,6 +58,12 @@
 					<!-- 제목 표시 -->
 					<a href="./content?num=${dto.num }&currentPage=${currentPage }">
 						${dto.subject }
+						<c:if test="${dto.photocount==1 }">
+							<i class="bi bi-image" style="color: gray;"></i>
+						</c:if>
+						<c:if test="${dto.photocount>1 }">
+							<i class="bi bi-images" style="color: gray;"></i>
+						</c:if>
 					</a>
 				</td>
 				<td>${dto.writer }</td>

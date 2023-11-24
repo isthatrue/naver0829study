@@ -64,7 +64,7 @@ $(function(){
 <body>
 <!-- The Modal -->
 <div class="modal" id="myLoginModal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
 
       <!-- Modal Header -->
@@ -108,7 +108,7 @@ $(function(){
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" 
+        <button type="button" class="btn btn-success" 
         id="btnlogin">로그인</button>
         
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" 

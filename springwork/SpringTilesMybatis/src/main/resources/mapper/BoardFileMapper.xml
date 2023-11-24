@@ -8,4 +8,12 @@
 	<select id="selectAllPhotoByNum" parameterType="int" resultType="String">
 		SELECT photoname FROM board_file WHERE num = #{num}
 	</select>
+	
+	<select id="selectAllDataByNum" parameterType="int" resultType="BoardFileDto">
+		SELECT * FROM board_file WHERE num = #{num}
+	</select>
+	
+	<delete id="deletePhotoByIdx" parameterType="int">
+		DELETE FROM board_file WHERE idx = #{idx}
+	</delete>
 </mapper>

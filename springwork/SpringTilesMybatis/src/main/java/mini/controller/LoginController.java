@@ -72,10 +72,8 @@ public class LoginController {
 		return map;
 	}
 	
-	@PostMapping("/api/v1/auth/sign-in")
-	@ResponseStatus(code = HttpStatus.OK)
-	
-	
+//	@PostMapping("/api/v1/auth/sign-in")
+//	@ResponseStatus(code = HttpStatus.OK)
 	
 	@GetMapping("/login/logout")
 	@ResponseBody public void logout(HttpSession session) {
