@@ -1,0 +1,51 @@
+create table memberdb (
+     num smallint auto_increment primary key,
+	 name varchar(20),
+	 myid varchar(20),
+     pass varchar(20),
+     photo varchar(100),
+     hp varchar(30),
+     email varchar(100),
+     gaipday datetime
+); 
+
+
+create table boarddb (
+	num smallint auto_increment primary key,
+    writer varchar(20),
+    myid varchar(20),
+    subject varchar(1000),
+    content varchar(2000),
+    readcount smallint default 0,
+    regroup smallint,
+    restep smallint,
+    relevel smallint,
+    writeday datetime
+);
+
+create table board_file (
+	idx smallint auto_increment primary key,
+    num smallint,
+    photoname varchar(100),
+    constraint fk_board_num foreign key(num) references boarddb(num) on delete cascade    
+);
+
+create table board_answer
+(
+   ansidx smallint auto_increment primary key,
+   ansname varchar(20),
+   ansid varchar(20),
+   ansphoto varchar(100),
+   ansmsg varchar(1000),
+   writeday datetime,
+   num smallint,
+   constraint fk_answer_num foreign key(num) references boarddb(num) on delete cascade
+);
+
+create table guestdb (
+	guest_num smallint auto_increment primary key,
+    guest_nickname varchar(30),
+    guest_photo varchar(100),
+    guest_content varchar(1000),
+    guest_writeday datetime
+);

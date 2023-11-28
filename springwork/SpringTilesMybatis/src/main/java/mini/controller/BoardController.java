@@ -22,6 +22,7 @@ import mini.dao.BoardDao;
 import mini.dao.MemberDao;
 import mini.dto.BoardDto;
 import mini.dto.BoardFileDto;
+import mini.service.BoardAnswerService;
 import mini.service.BoardFileService;
 import mini.service.BoardService;
 
@@ -33,6 +34,9 @@ public class BoardController {
 	
 	@Autowired
 	private BoardFileService boardFileService;
+	
+	@Autowired
+	private BoardAnswerService answerService;
 	
 	@Autowired
 	private MemberDao memberDao;
@@ -78,8 +82,12 @@ public class BoardController {
 	  // 각 dto 에 첨부된 사진의 개수를 저장
 	  for(BoardDto dto : list) {
 	  	int pcount = boardFileService.getPhotoByNum(dto.getNum()).size();
-	  	System.out.println(dto.getNum() + ":" + pcount);
+	  	// System.out.println(dto.getNum() + ":" + pcount);
 	  	dto.setPhotocount(pcount);
+	  	
+	  	// 댓글 개수 저장
+	  	int acount = answerService.getAnswerBoard(dto.getNum()).size();
+			dto.setAcount(acount);
 	  }
 	  
 	  // request 에 담을 값들
@@ -197,6 +205,7 @@ public class BoardController {
 		model.addAttribute("profile_photo", profile_photo);
 		model.addAttribute("dto", dto);
 		model.addAttribute("currentPage", currentPage);
+		
 		return "board/content";
 	}
 
