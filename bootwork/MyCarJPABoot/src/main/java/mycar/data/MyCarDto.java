@@ -46,6 +46,7 @@ public class MyCarDto {
 	@CreationTimestamp
 	private Timestamp writeday;
 	
+	// @Transient	: 테이블의 컬럼으로는 생성되지 않고 객체에서만 사용 가능한 멤버변수
 	@Transient
 	private int commentcount;
 	

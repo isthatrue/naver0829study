@@ -39,8 +39,14 @@
             <td>
                <a th:href="@{/detail(num=${dto.num})}" style = "color : black; cursor : pointer;">
                   <img th:src="@{https://ejn4yyuh2111.edge.naverncp.com/6vzIWNn6rU/bootmyshop/{carphoto}?type=f&w=40&h=40&faceopt=true&ttype=jpg(carphoto=${dto.carphoto})}"
-                        border = "1" hspace = "10">[[${dto.carname}]]
-               </a>
+                        border = "1" hspace = "10">
+                        <!-- 자동차명 -->
+                        [[${dto.carname}]]</a>&nbsp;
+                        <!-- 댓글 개수 -->                        
+                        <span style="color: red;"
+                        th:if="${dto.commentcount > 0}">
+                        	([[${dto.commentcount}]])
+                        </span>
             </td>
          <td align = "center">
             <div class = "box" th:style = "'background-color:'+${dto.carcolor}"></div>
