@@ -35,8 +35,24 @@ public class PersonController {
 	
 	// 삭제
 	@DeleteMapping("/person/delete")
-	public void delete(@RequestParam("num") int num) {
+	public void delete(@RequestParam("pnum") int num) {
 		System.out.println("delete >> " + num);
 		personDao.deletePerson(num);
+	}
+	
+	// dto 반환
+	@GetMapping("/person/select")
+	public PersonDto select(@RequestParam("pnum") int pnum) {
+		System.out.println("select >> " + pnum);
+		
+		return personDao.getSelectData(pnum);
+	}
+	
+	// 수정
+	@PostMapping("/person/update")
+	public void update(@RequestBody PersonDto dto) {
+		
+		System.out.println("update >> " + dto);
+		personDao.updatePerson(dto);
 	}
 }
