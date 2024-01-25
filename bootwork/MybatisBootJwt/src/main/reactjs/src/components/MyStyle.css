@@ -12,14 +12,14 @@ ul.menu li {
   line-height: 60px;
   text-align: center;
   margin-right: 10px;
-  box-shadow: 5px 5px 5px gray;
-  border-radius: 20px;
-  background-color: darkseagreen;
+  box-shadow: 10px 10px 10px black;
+  /* border-radius: 20px; */
+  background-color: lightgrey;
 }
 
 ul.menu li a {
   text-decoration: none;
-  color: yellow;
+  color: black;
   cursor: pointer;
 }
 
@@ -29,4 +29,47 @@ ul.menu li:hover {
 
 ul.menu li a:hover {
   color: palevioletred;
+}
+
+.pagenum {
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+body {
+  background: radial-gradient(
+    circle,
+    rgba(232, 232, 232, 1) 0%,
+    rgba(172, 255, 63, 1) 37%,
+    rgba(199, 255, 102, 1) 48%,
+    rgba(255, 102, 193, 1) 65%,
+    rgba(254, 170, 255, 1) 80%,
+    rgba(150, 138, 255, 1) 94%
+  );
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.window-bar {
+  background-color: pink;
+  border: 2px solid black;
+  margin: 4px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+  height: 50px;
+  padding: 2px 4px;
+}
+
+.window-bar button {
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  background-color: lightpink;
+  border: 2px solid black;
+  cursor: pointer;
 }

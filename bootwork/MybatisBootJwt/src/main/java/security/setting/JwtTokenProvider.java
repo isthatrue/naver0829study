@@ -43,7 +43,7 @@ public class JwtTokenProvider {
 				.setIssuedAt(new Date()) // 현재 시간 기반으로 생성
 				.setExpiration(expiryDate) // 만료 시간 세팅
 				.claim("userId", userId)
-				.claim("userName", "비트캠프")
+				// .claim("userName", "비트캠프")
 				// 사용할 암호화 알고리즘, signature에 들어갈 secret 값 세팅
 				.signWith(secretKey, SignatureAlgorithm.HS256)
 				.compact();
@@ -62,7 +62,7 @@ public class JwtTokenProvider {
 		log.info("subject:"+claims.getSubject());
 		log.info("Audience:"+claims.getAudience());
 		log.info("expire:"+claims.getExpiration().toString());
-		log.info("userName:"+claims.get("userName"));
+		// log.info("userName:"+claims.get("userName"));
     log.info("userId:"+claims.get("userId"));
 
 		return claims.getSubject();
